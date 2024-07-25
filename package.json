@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/serhatgemici/playwright-testrail-reporter.git"
+    "url": "git+https://github.com/niche-tester/playwright-testrail-reporter.git"
   },
   "bugs": {
     "url": "https://github.com/niche-tester/playwright-testrail-reporter.git"
