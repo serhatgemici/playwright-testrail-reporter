@@ -39,7 +39,8 @@ export class TestRailReporter implements Reporter {
 			await addTestRailRun(projectId)
 
 		} else {
-			logger("Existing Test Run with ID " + process.env.TESTRAIL_RUN_ID + " will be used")
+			logger("Existing Test Run with ID " + process.env.TESTRAIL_RUN_ID + " will be used\nUpdating the Test Run with latest Test Cases")
+			await updateTestRailRun(parseInt(process.env.TESTRAIL_RUN_ID))
 		}
 	}
 
@@ -165,3 +166,25 @@ async function updateResultCases(runId: number, payload: any) {
 			logger("Failed to update test results: " + JSON.stringify(reason))
 		})
 }
+
+/**
+ * Update TestRail Test Run
+ * @param runId
+ * @returns
+ */
+async function updateTestRailRun(runId: number) {
+    const caseIds = await extractCaseIds(process.env.TESTS_DIRECTORY);
+    console.log('Case IDs:', caseIds);
+	return await api.updateRun(runId, {
+		include_all: false,
+        case_ids: caseIds,
+	}).then(
+		(res) => {
+			logger("TestRail run has been updated: " + process.env.TESTRAIL_HOST +
+				"/index.php?/runs/view/"+ res.id)
+		},
+		(reason) => {
+			logger("Failed to update the TestRail run: " + reason)
+		})
+}
+
