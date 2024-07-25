@@ -2,10 +2,10 @@
   "name": "playwright-testrail-reporter",
   "version": "1.2.1",
   "description": "Report Playwright test results to TestRail",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
   "files": [
-    "/lib"
+    "/src"
   ],
   "scripts": {
     "build": "tsc --build tsconfig.json",
