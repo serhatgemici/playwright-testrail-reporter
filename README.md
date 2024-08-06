@@ -20,7 +20,7 @@ TESTRAIL_PASSWORD: TestRail API key (Generate this or use an existing one from t
 TESTRAIL_PROJECT_ID: TestRail project ID where test runs and results will be added
 TESTRAIL_SUITE_ID: The TestRail suite ID associated with the test cases
 TESTRAIL_RUN_NAME: The name of the TestRail test run. (the execution time will be appended to this name on when created on TestRail)
-TESTS_DIRECTORY: Path to your Spec files
+TESTS_DIRECTORY: Path to your Feature files
 ````
 
 Additionally, you may provide the TESTRAIL_RUN_ID environment variable to use an existing TestRail test run instead of creating a new one.
